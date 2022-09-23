@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
 });
 
 /* CREATE 'PUT' REQUEST */
-
+router.put
 /* CREATE 'DELETE' REQUEST */
 
 module.exports = router;
