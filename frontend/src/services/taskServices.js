@@ -14,6 +14,6 @@ export function updateTask(task) {
   return axios.put(apiUrl + "/update:id", { task });
 }
 /* CREATE 'DELETE' FUNCTIONS */
-export function DeleteTask(task) {
+export function deleteTask(task) {
   return axios.delete(apiUrl + "/delete:id", { task });
 }
