@@ -5,6 +5,9 @@ import Navbar from "./components/Navbar";
 import React from 'react';
 
 function App() {
+  const [taskTitle, setTaskTitle] = useState(' ');
+  const [taskBody, setTaskBody] = useState(' ');
+
   return (
     <BrowserRouter>
       <div className='App'>
@@ -18,7 +21,7 @@ function App() {
               taskTitle = {taskTitle}
               setTaskTitle = {setTaskTitle}
               taskBody = {taskBody}
-              setTaskBody ={setTaskTitle}/>
+              setTaskBody ={setTaskBody}/>
             } 
             />
         </Routes>
