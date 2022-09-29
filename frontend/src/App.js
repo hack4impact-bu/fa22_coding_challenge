@@ -11,7 +11,16 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' exact element={<TaskList />} />
-          <Route path='/create' element={<CreateTask />} />
+          <Route path='/create' 
+            element={
+            <CreateTask 
+              handleSubmit = {handleSubmit}
+              taskTitle = {taskTitle}
+              setTaskTitle = {setTaskTitle}
+              taskBody = {taskBody}
+              setTaskBody ={setTaskTitle}/>
+            } 
+            />
         </Routes>
       </div>
     </BrowserRouter>
