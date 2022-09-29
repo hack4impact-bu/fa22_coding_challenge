@@ -1,6 +1,6 @@
 import React from "react";
 import { deleteTask, updateTask } from "../services/taskServices";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const Task = ({ task }) => {
   /* CREATE UPDATE OPERATION */
