@@ -3,7 +3,7 @@ import CreateTask from "./components/CreateTask";
 import TaskList from "./components/TaskList";
 import Navbar from "./components/Navbar";
 import React from 'react';
-import addTask from "./services/taskServices";
+import addTask, { updateTask } from "./services/taskServices";
 import deleteTask  from "./services/taskServices";
 import TaskList from "./components/TaskList";
 import Task from "./components/Task";
@@ -39,12 +39,24 @@ function App() {
       const taskList = tasks.filter(task => task.id !== id);
       setTasks(taskList);
       history.push('/');
-    }catch (error){
+    } catch (error){
       console.log(`Woops! Error: ${error.message}`)
     }
   }
 
-  const handleEdit
+  const handleEdit = async(id) => {
+    const editTask = {id, title: editTitle, body: editBody};
+    try {
+      const response = await updateTask(`task/${id}`)
+      setTasks(tasks.map(task => task.id === id? {...response.data}:post))
+      setEditTitle(' ');
+      setEditBody(' ');
+      history.push('/');
+    } catch (error){
+      console.log(`Woops! Error: ${error.message}`)
+    }
+  }
+  
   return (
     <BrowserRouter>
       <div className='App'>
