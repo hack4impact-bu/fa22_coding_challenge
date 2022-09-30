@@ -9,7 +9,7 @@ import TaskList from "./components/TaskList";
 import Task from "./components/Task";
 
 function App() {
-  
+
   const [taskTitle, setTaskTitle] = useState(' ');
   const [taskBody, setTaskBody] = useState(' ');
   const history = useHistory();
@@ -63,6 +63,18 @@ function App() {
               <Task 
               tasks={tasks} 
               handleDelete={handleDelete} />
+            }
+          />
+          <Route path='/update/:id'
+            element={
+              <Task 
+              tasks={tasks}
+              handleEdit = {handleEdit}
+              editTitle = {editTitle}
+              setEditTitle = {setEditTitle}
+              editBody = {editBody}
+              setEditBody = {setEditBody} 
+              />
             }
           />
         </Routes>
