@@ -1,5 +1,5 @@
 import React from "react";
-import { deleteTask, updateTask } from "../services/taskServices";
+//import { deleteTask, updateTask } from "../services/taskServices";
 import { useState, useEffect } from "react";
 
 const Task = ({ task }) => {

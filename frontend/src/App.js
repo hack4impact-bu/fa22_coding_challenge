@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import React from 'react';
 import addTask from "./services/taskServices";
 import TaskList from "./components/TaskList";
+import Task from "./components/Task";
 
 function App() {
   const [taskTitle, setTaskTitle] = useState(' ');
@@ -26,6 +27,8 @@ function App() {
       console.log(`Woops! Error: ${error.message}`)
     }
   }
+
+  //const handleDelete = async(id) => {}
   return (
     <BrowserRouter>
       <div className='App'>
@@ -42,6 +45,7 @@ function App() {
               setTaskBody ={setTaskBody}/>
             } 
             />
+          <Route path='/'
         </Routes>
       </div>
     </BrowserRouter>
