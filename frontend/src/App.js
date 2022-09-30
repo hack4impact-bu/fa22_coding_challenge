@@ -12,7 +12,10 @@ function App() {
 
   const [taskTitle, setTaskTitle] = useState(' ');
   const [taskBody, setTaskBody] = useState(' ');
-  const history = useHistory();
+  const [editTitle, setEditTitle] = useState(' ');
+  const [editBody, setEditBody] = useState(' ');
+  const history = useHistory(); 
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,7 +44,7 @@ function App() {
     }
   }
 
-
+  const handleEdit
   return (
     <BrowserRouter>
       <div className='App'>
