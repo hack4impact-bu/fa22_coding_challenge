@@ -4,10 +4,12 @@ import TaskList from "./components/TaskList";
 import Navbar from "./components/Navbar";
 import React from 'react';
 import addTask from "./services/taskServices";
+import deleteTask  from "./services/taskServices";
 import TaskList from "./components/TaskList";
 import Task from "./components/Task";
 
 function App() {
+  
   const [taskTitle, setTaskTitle] = useState(' ');
   const [taskBody, setTaskBody] = useState(' ');
   const history = useHistory();
@@ -28,7 +30,18 @@ function App() {
     }
   }
 
-  //const handleDelete = async(id) => {}
+  const handleDelete = async(id) => {
+    try {
+      await deleteTask(`task/${id}`)
+      const taskList = tasks.filter(task => task.id !== id);
+      setTasks(taskList);
+      history.push('/');
+    }catch (error){
+      console.log(`Woops! Error: ${error.message}`)
+    }
+  }
+
+
   return (
     <BrowserRouter>
       <div className='App'>
@@ -45,7 +58,13 @@ function App() {
               setTaskBody ={setTaskBody}/>
             } 
             />
-          <Route path='/'
+          <Route path='/create/:id'
+            element={
+              <Task 
+              tasks={tasks} 
+              handleDelete={handleDelete} />
+            }
+          />
         </Routes>
       </div>
     </BrowserRouter>
