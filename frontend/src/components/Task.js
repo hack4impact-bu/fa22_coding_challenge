@@ -1,6 +1,7 @@
 import React from "react";
 //import { deleteTask, updateTask } from "../services/taskServices";
 import { useState, useEffect } from "react";
+import { useParams, Link } from 'react-router-dom';
 
 const Task = ({ task }) => {
   /* CREATE UPDATE OPERATION */
