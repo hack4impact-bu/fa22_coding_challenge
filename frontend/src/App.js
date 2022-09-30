@@ -3,11 +3,29 @@ import CreateTask from "./components/CreateTask";
 import TaskList from "./components/TaskList";
 import Navbar from "./components/Navbar";
 import React from 'react';
+import addTask from "./services/taskServices";
+import TaskList from "./components/TaskList";
 
 function App() {
   const [taskTitle, setTaskTitle] = useState(' ');
   const [taskBody, setTaskBody] = useState(' ');
+  const history = useHistory();
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const id = posts.length ? posts[posts.length -1].id + 1 : 1;
+    const newTask = {id, title: taskTitle, body: taskBody}
+    try {
+      const response = await addTask(newTask);
+      const allTasks = [...tasks, response.data];
+      setTasks(allTasks);
+      setTaskTitle('');
+      setTaskBody('');
+      history.push('/');
+    } catch (error){
+      console.log(`Woops! Error: ${error.message}`)
+    }
+  }
   return (
     <BrowserRouter>
       <div className='App'>
