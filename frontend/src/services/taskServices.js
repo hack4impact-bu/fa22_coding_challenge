@@ -10,5 +10,10 @@ export function addTask(task) {
 }
 
 /* CREATE 'PUT' FUNCTIONS */
+export function updateTask(task){
+  return axios.put(apiUrl + "/update:id", { task })
+}
 
-/* CREATE 'DELETE' FUNCTIONS */
+export function deleteTask(task){
+  return axios.put(apiUrl + "/create/:id", { task })
+}

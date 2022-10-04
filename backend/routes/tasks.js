@@ -21,7 +21,26 @@ router.get("/", async (req, res) => {
 });
 
 /* CREATE 'PUT' REQUEST */
-
+router.put("/update:id", async(req,res)=>{
+  try {
+    const {id} = req.params
+    const newTask = await Task.findById(id)
+    newTask.text = req.body.text
+    await newTask.save()
+    res.json(newTask)
+  } catch(error){
+    res.status(404).json({error})
+  }
+})
 /* CREATE 'DELETE' REQUEST */
-
+router.delete("/delete:id", async(req,res)=>{
+  try {
+    const {id} = req.params
+    const prevTask = await Task.findById(id);
+    await prevTask.remove()
+    res.status(204).json(prevTask)
+  } catch (error){
+    res.status(404).json({error})
+  }
+})
 module.exports = router;
